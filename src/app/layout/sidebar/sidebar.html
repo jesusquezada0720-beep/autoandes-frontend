@@ -1,0 +1,5 @@
+<aside class="sidebar">
+  <a class="brand" routerLink="/inicio">AutoAndes<small>Sistema de taller</small></a>
+  <nav>@for (item of items(); track item.path) {<a [routerLink]="item.path" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{item.label}}</a>}</nav>
+  <div class="sidebar-foot">Gestión de taller</div>
+</aside>

@@ -1,59 +1,35 @@
-# AutoandesFrontend
+# AutoAndes Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.5.
+Aplicación SPA para operaciones del taller AutoAndes. Construida con Angular 22, componentes standalone y rutas con carga diferida.
 
-## Development server
+## Requisitos y ejecución
 
-To start a local development server, run:
+- Node.js 20.19+ (probado con Node 24).
+- Backend AutoAndes activo en `http://localhost:8080` y Oracle configurado en el backend.
 
-```bash
-ng serve
+En PowerShell, desde esta carpeta:
+
+```powershell
+npm.cmd install
+ng.cmd serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+La aplicación se abre en `http://localhost:4200`. La URL de la API está en `src/environments/environment.ts`.
 
-## Code scaffolding
+## Pruebas y compilación
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```powershell
+ng.cmd test --no-watch
+ng.cmd build
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Funcionalidad
 
-```bash
-ng generate --help
-```
+- Inicio de sesión JWT; token y vencimiento se mantienen en `sessionStorage` y la sesión se cierra al vencer.
+- Interceptor de autenticación limitado a la API; un `401` cierra la sesión (salvo en login), mientras que un `403` mantiene la sesión.
+- Guards de autenticación, invitado y permiso; menú y acciones visibles según permisos.
+- CRUD de Servicios y Vehículos, con clientes cargados desde el backend y errores de validación mostrados en los campos.
+- Registro de órdenes con líneas dinámicas, cantidad de 1 a 5, servicio no repetido y cálculo visual de subtotales/total. El servidor vuelve a calcular importes con el catálogo.
+- Consulta de órdenes con filtros, detalle, anulación con motivo y reporte de ingresos por servicio.
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Para las credenciales iniciales y los datos de Oracle, consulta el README del backend.

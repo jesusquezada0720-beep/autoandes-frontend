@@ -1,1 +1,2 @@
-/* You can add global styles to this file, and also import other style files */
+@import './app/features/ordenes/ordenes.css';
+:root{font-family:Arial,Helvetica,sans-serif;color:#333;background:#f7f7f7;font-synthesis:none;text-rendering:optimizeLegibility}*{box-sizing:border-box}body{margin:0;min-width:320px;min-height:100vh}button,input,select{font:inherit}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #457b91;outline-offset:1px}h1,h2,h3{font-family:Arial,Helvetica,sans-serif}a,button{-webkit-tap-highlight-color:transparent}
